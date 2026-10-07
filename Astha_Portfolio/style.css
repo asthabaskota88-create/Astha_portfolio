@@ -1,0 +1,144 @@
+/* ==========================================================
+   style.css - Portfolio of Astha Shree Baskota
+   Sections: 1 Variables | 2 Base | 3 Layout | 4 Header
+             5 Hero | 6 Content | 7 Footer | 8 Media queries
+   ========================================================== */
+
+/* 1. Design tokens: colour palette and typography */
+:root {
+    --color-primary: #1f4e79;
+    --color-accent: #3a86c8;
+    --color-text: #1e2a35;
+    --color-muted: #5b6b7a;
+    --color-bg: #ffffff;
+    --color-bg-alt: #f2f6fa;
+    --color-on-primary: #ffffff;
+    --font-body: "Segoe UI", Arial, sans-serif;
+    --font-heading: Georgia, "Times New Roman", serif;
+    --radius: 8px;
+  }
+  
+  /* 2. Base and reset */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+  }
+  
+  h1, h2, h3 { font-family: var(--font-heading); line-height: 1.25; }
+  h2 { font-size: 1.9rem; color: var(--color-primary); margin-bottom: 1rem; }
+  h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+  a  { color: var(--color-accent); }
+  
+  /* 3. Layout helpers */
+  .container { width: 90%; max-width: 1000px; margin: 0 auto; }
+  .section { padding: 3.5rem 0; }
+  .section-alt { background-color: var(--color-bg-alt); }
+  
+  /* 4. Header and navigation (Flexbox) */
+  .site-header {
+    background-color: var(--color-primary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 0;
+  }
+  .brand {
+    color: var(--color-on-primary);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .nav-list { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-list a {
+    color: var(--color-on-primary);
+    text-decoration: none;
+    padding-bottom: 2px;
+  }
+  .nav-list a:hover,
+  .nav-list a:focus { border-bottom: 2px solid var(--color-on-primary); }
+  
+  /* 5. Hero */
+  .hero {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    padding: 5rem 0;
+  }
+  .eyebrow { text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; }
+  .hero h1 { font-size: 2.6rem; margin: 0.5rem 0 1rem; }
+  .lead { font-size: 1.2rem; margin-bottom: 1.75rem; max-width: 36rem; }
+  .button {
+    display: inline-block;
+    background-color: var(--color-on-primary);
+    color: var(--color-primary);
+    padding: 0.7rem 1.6rem;
+    border-radius: var(--radius);
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .button:hover, .button:focus { background-color: var(--color-bg-alt); }
+  
+  /* 6. Content: cards (CSS Grid) and skills (Flexbox) */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .card {
+    background-color: var(--color-bg);
+    border: 1px solid #d5dfe9;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+  .card ul { padding-left: 1.2rem; color: var(--color-muted); }
+  .card li { margin-bottom: 0.4rem; }
+  
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+  .skill-list li {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+  }
+  address { font-style: normal; font-size: 1.1rem; }
+  
+  /* 7. Footer */
+  .site-footer {
+    background-color: var(--color-text);
+    color: var(--color-on-primary);
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+  }
+  
+  /* 8. Responsive design (mobile-first adjustments) */
+  @media (max-width: 800px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .header-inner { flex-direction: column; gap: 0.6rem; }
+    .nav-list { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .hero { padding: 3rem 0; }
+    .hero h1 { font-size: 1.9rem; }
+    .grid { grid-template-columns: 1fr; }
+    .section { padding: 2.5rem 0; }
+  }
